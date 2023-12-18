@@ -34,7 +34,17 @@ Scenario: Division of two numbers returning non integer value
 	When I divide first number by second number
 	Then the result is 2.5
 
-Scenario: Square root of a number
+Scenario: Square root of a positive number
 	Given the first number is 16
 	When I square root the first number
 	Then the result is 4
+
+Scenario: Square root of a zero
+	Given the first number is 0
+	When I square root the first number
+	Then the result is 0
+
+Scenario: Square root of a negative number
+	Given the first number is -16
+	When I square root the first number
+	Then display an error

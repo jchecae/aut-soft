@@ -50,6 +50,19 @@ namespace bdd.workshop.calculator.tests.xunit
             double result = 4;
             Assert.True(Operator.SquareRoot(a) == result);
         }
+        public void SquareRootZeroResult()
+        {
+            int a = 0;
+            double result = 0;
+            Assert.True(Operator.SquareRoot(a) == result);
+        }
+        public void NegativeSquareRootResult()
+        {
+            int a = -16;
+            double result = "Formato introducido erróneo, prueba con un número positivo";
+            Assert.True(Operator.SquareRoot(a) == result);
+        }
+
 
         [Theory(DisplayName ="Prime Number Theory")]
         [Trait("TestType","Theory")]
