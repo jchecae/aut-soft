@@ -32,16 +32,7 @@ namespace bdd.workshop.calculator.tests.xunit
         {
             Assert.True(Operator.Divide(a, b) == result);
         }
-        //[Fact]
-        //[Trait("TestType", "UT")]
-        //public void BasicDivide()
-        //{
-        //    int a = 20;
-        //    int b = 4;
-        //    double result = 5;
-        //    Assert.True(Operator.Divide(a, b) == result);
-        //}
-
+      
         [Fact]
         [Trait("TestType", "UT")]
         public void BasicSubstract()
@@ -51,15 +42,14 @@ namespace bdd.workshop.calculator.tests.xunit
             double result = 16;
             Assert.True(Operator.Substract(a, b) == result);
         }
-        //[Fact]
-        //[Trait("TestType","NRT")]
-        //public void DividingNonIntegerResult()
-        //{
-        //    int a = 10;
-        //    int b = 4;
-        //    double result = 2.5;
-        //    Assert.True(Operator.Divide(a, b) == result);
-        //}
+        [Fact]
+        [Trait("TestType","NRT")]
+        public void SquareRootResult()
+        {
+            int a = 16;
+            double result = 4;
+            Assert.True(Operator.SquareRoot(a) == result);
+        }
 
         [Theory(DisplayName ="Prime Number Theory")]
         [Trait("TestType","Theory")]

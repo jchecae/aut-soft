@@ -37,6 +37,7 @@ namespace bdd.workshop.calculator.test.selenium
         [InlineData(20, "/", 4, 5)]
         [InlineData(20, "-", 4, 16)]
         [InlineData(10, "/", 4, 2.5)]
+        [InlineData(16, "^1/2", null, 4)]
         public void OperationsTheory(int a, string operation, int b, double result)
         {
             EvaluateOperation(a, b, operation, result);

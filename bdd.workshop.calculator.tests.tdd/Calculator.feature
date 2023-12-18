@@ -33,4 +33,9 @@ Scenario: Division of two numbers returning non integer value
 	And the second number is 4
 	When I divide first number by second number
 	Then the result is 2.5
-	
+
+Scenario: Square root of a number
+	Given the first number is 16
+	When I square root the first number
+	Then the result is 4
+	And displayed first name is 16
