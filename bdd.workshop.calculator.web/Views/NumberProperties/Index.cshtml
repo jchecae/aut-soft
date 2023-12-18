@@ -1,0 +1,19 @@
+﻿@model bdd.workshop.calculator.web.Models.Number
+
+@{
+
+    ViewBag.Title = "Calculate!";
+}
+
+<h2>Insert number to get properties</h2>
+@using (Html.BeginForm("Properties", "NumberProperties"))
+{
+    <fieldset>
+        <legend>Get Number properties</legend>
+
+        <div class="editor-field">
+            First Number: @Html.TextBoxFor(model => model.TheNumber);
+        </div>
+    </fieldset>
+    <input type="submit" value="See properties" />
+}
