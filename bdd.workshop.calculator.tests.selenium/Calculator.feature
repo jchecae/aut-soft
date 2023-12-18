@@ -44,8 +44,19 @@ Scenario: Division of two numbers returning non integer value
 	And displayed first name is 10
 	And displayed second name is 4
 	
-Scenario: Square root of a number
+Scenario: Square root of a positive number
 	Given the first number is 16
 	When I square root the first number
 	Then the result is 4
 	And displayed first name is 16
+
+Scenario: Square root of a zero
+	Given the first number is 0
+	When I square root the first number
+	Then the result is 0
+	And displayed first name is 0
+
+Scenario: Square root of a negative number
+	Given the first number is -16
+	When I square root the first number
+	Then display an error
