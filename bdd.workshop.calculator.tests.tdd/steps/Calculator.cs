@@ -76,5 +76,11 @@ namespace bdd.workshop.calculator.tests.tdd.steps
             Assert.True(result == _scenarioContext.Get<double>("Result"));
         }
 
+        [When(@"I square root the first number")]
+        public void WhenISquareRootTheFirstNumber()
+        {
+            var firstNumber = _scenarioContext.Get<int>("FirstNumber");
+            _scenarioContext.Add("Result", Operator.SquareRoot(firstNumber));
+        }
     }
 }
