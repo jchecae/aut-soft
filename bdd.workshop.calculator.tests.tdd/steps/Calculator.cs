@@ -82,5 +82,12 @@ namespace bdd.workshop.calculator.tests.tdd.steps
             var firstNumber = _scenarioContext.Get<int>("FirstNumber");
             _scenarioContext.Add("Result", Operator.SquareRoot(firstNumber));
         }
+
+        [Then(@"display an error")]
+        public void ThenDisplayAnError()
+        {
+            string errorMessage = "Formato introducido erróneo, prueba con un número positivo";
+            _scenarioContext.Add("ErrorMessage", errorMessage);
+        }
     }
 }
