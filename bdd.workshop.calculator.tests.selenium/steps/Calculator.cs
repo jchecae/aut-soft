@@ -115,5 +115,27 @@ namespace bdd.workshop.calculator.tests.selenium.steps
         {
             EvaluateNumberBox(secondNumber, "//td[@id='theB']");
         }
+
+        [When(@"I square root the first number")]
+        public void WhenISquareRootTheFirstNumber()
+        {
+            var firstNumber = _scenarioContext.Get<int>("FirstNumber");
+
+            try
+            {
+                _scenarioContext.Add("Result", EvaluateOperation(firstNumber, 0, "^1/2"));
+            }
+            catch (Exception)
+            {
+                _scenarioContext.Add("Result", "Cannot calculate square root of a negative number");
+            }
+        }
+
+        [Then(@"display an error")]
+        public void ThenDisplayAnError()
+        {
+            string result = _scenarioContext.Get<string>("Result");
+            Assert.True(result == "Cannot calculate square root of a negative number");
+        }
     }
 }
