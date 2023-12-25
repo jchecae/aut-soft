@@ -2,7 +2,7 @@ name: Compilar e implementar la aplicación de .NET Core en la aplicación web 
 on:
   push:
     branches:
-    - square-root-MVP-TDD
+    - square-root-TDD-Selenium-test
 env:
   AZURE_WEBAPP_NAME: bddworkshopcalculatorweb20231219191954
   AZURE_WEBAPP_PACKAGE_PATH: bdd.workshop.calculator.web\published

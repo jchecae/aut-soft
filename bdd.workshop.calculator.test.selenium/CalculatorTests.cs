@@ -8,7 +8,7 @@ namespace bdd.workshop.calculator.test.selenium
 {
     public class CalculatorTests : WebBrowser
     {
-        private void EvaluateOperation(int a, int b, string operation, double result)
+        private void EvaluateOperation(int a, int b, string operation, object result)
         {
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             var aXpath = "//input[@id='A_TheNumber']";
@@ -23,6 +23,7 @@ namespace bdd.workshop.calculator.test.selenium
             inputA.SendKeys(a.ToString());
             inputCmd.SendKeys(operation);
             inputB.SendKeys(b.ToString());
+            
             button.Click();
             var theResult = "//td[@id='theResult']";
             var outputResultString = FindElement(theResult, wait).Text;
@@ -38,7 +39,9 @@ namespace bdd.workshop.calculator.test.selenium
         [InlineData(20, "-", 4, 16)]
         [InlineData(10, "/", 4, 2.5)]
         [InlineData(16, "^1/2", null, 4)]
-        public void OperationsTheory(int a, string operation, int b, double result)
+        [InlineData(0, "^1/2", null, 0)]
+        [InlineData(-16, "^1/2", null, true)]
+        public void OperationsTheory(int a, string operation, int b, object result)
         {
             EvaluateOperation(a, b, operation, result);
         }

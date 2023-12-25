@@ -63,8 +63,15 @@ namespace bdd.workshop.calculator.tests.xunit
         public void NegativeSquareRootResult()
         {
             int a = -16;
-            string result = "Formato introducido erróneo, prueba con un número positivo";
-            Assert.True(Operator.SquareRoot(a) == result);
+            try
+            {
+                Operator.SquareRoot(a);
+            }
+            catch (ArgumentException ex)
+            {
+               Assert.Equal("Cannot calculate square root of a negative number", ex.Message);
+            }
+            
         }
 
 

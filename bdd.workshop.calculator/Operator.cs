@@ -36,7 +36,7 @@ namespace bdd.workshop.calculator
         {
             if (a < 0)
             {
-                return "Formato introducido erróneo, prueba con un número positivo";
+                throw new ArgumentException("Cannot calculate square root of a negative number");
             }
             else
             {

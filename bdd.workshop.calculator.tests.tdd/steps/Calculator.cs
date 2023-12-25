@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.CommonModels;
 using Xunit;
 
 namespace bdd.workshop.calculator.tests.tdd.steps
@@ -80,14 +81,23 @@ namespace bdd.workshop.calculator.tests.tdd.steps
         public void WhenISquareRootTheFirstNumber()
         {
             var firstNumber = _scenarioContext.Get<int>("FirstNumber");
-            _scenarioContext.Add("Result", Operator.SquareRoot(firstNumber));
+
+            try
+            {
+                _scenarioContext.Add("Result", Operator.SquareRoot(firstNumber));
+            }
+            catch (Exception)
+            {
+                _scenarioContext.Add("Result", "Cannot calculate square root of a negative number");
+            }
         }
 
         [Then(@"display an error")]
         public void ThenDisplayAnError()
         {
-            string errorMessage = "Formato introducido erróneo, prueba con un número positivo";
-            _scenarioContext.Add("ErrorMessage", errorMessage);
+            string result = _scenarioContext.Get<string>("Result");
+            Assert.True(result == "Cannot calculate square root of a negative number");
         }
+           
     }
 }
